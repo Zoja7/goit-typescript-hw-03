@@ -10,7 +10,7 @@ class Key {
 }
 
 class Person {
-  constructor (private key = new Key()) {}
+  private key = new Key()
 
   getKey () {
     return this.key
@@ -23,8 +23,8 @@ abstract class House {
   tenants: Person[] = []
 
   comeIn () {
-    if (this.door!) {
-      return this.tenants.push(new Person(this.key))
+    if (this.door) {
+      return this.tenants.push(new Person())
     }
   }
 
@@ -45,7 +45,7 @@ const key = new Key()
 
 const myHouse = new MyHouse()
 
-const person = new Person(key)
+const person = new Person()
 myHouse.openDoor(person.getKey())
 
 myHouse.comeIn()
