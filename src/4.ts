@@ -25,9 +25,9 @@ abstract class House {
   key: Key
   tenants: Person[] = []
 
-  comeIn () {
+  comeIn (person: Person) {
     if (this.door) {
-      return this.tenants.push(new Person(this.key))
+      return this.tenants.push(person)
     }
   }
 
@@ -49,13 +49,11 @@ class MyHouse extends House {
 }
 
 const key = new Key()
-
 const house = new MyHouse(key)
-
 const person = new Person(key)
 house.openDoor(person.getKey())
 
-house.comeIn()
+house.comeIn(person)
 
 console.log(house.tenants)
 
