@@ -35,6 +35,10 @@ abstract class House {
 }
 
 class MyHouse extends House {
+  constructor (key: Key) {
+    super()
+    this.key = key
+  }
   public openDoor (key: Key) {
     if (key.getSignature() === this.key.getSignature()) {
       return (this.door = true)
@@ -46,13 +50,13 @@ class MyHouse extends House {
 
 const key = new Key()
 
-const myHouse = new MyHouse()
+const house = new MyHouse(key)
 
 const person = new Person(key)
-myHouse.openDoor(person.getKey())
+house.openDoor(person.getKey())
 
-myHouse.comeIn()
+house.comeIn()
 
-console.log(myHouse.tenants)
+console.log(house.tenants)
 
 export {}
