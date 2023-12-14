@@ -22,7 +22,7 @@ class Person {
 
 abstract class House {
   door: boolean = false
-  key: Key = new Key()
+  key: Key
   tenants: Person[] = []
 
   comeIn () {
